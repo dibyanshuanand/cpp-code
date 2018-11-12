@@ -16,8 +16,12 @@ void secondQ(int b[], int n, int k) {
         }
     }
     for (int z = 0 ; z < n ; ++z) {
-        if (count[z] > max && count[z] <= k)
-            max = count[z];
+        if (count[z] > max)  {
+            if (count[z] > k)
+                max = k;
+            else
+                max = count[z];
+        }
     }
 
     cout << max << endl;
@@ -28,6 +32,8 @@ void firstQ(int a[], int b[], int n) {
     for (int x = 2; x <= n ; ++x) {
         b[x] = a[x-1];
     }
+    for (int z = 1; z <= n ; ++z)
+        a[z] = b[z];
 }
 
 int main (void) {
