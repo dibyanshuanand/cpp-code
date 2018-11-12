@@ -3,18 +3,22 @@
 using namespace std;
 
 void secondQ(int b[], int n, int k) {
-    int count = 0, max = 0;
+    int count[n], max = 0;
+    int a = 0;
+    for (int x = 0 ; x < n ; x++)
+        count[x] = 0;
     for (int z = 1 ; z <= n ; ++z) {
         if (b[z] == 1) {
-            count++;
-            if (count >= max)
-                max = count;
+            count[a] += 1;
         }
-        else
-            count = 0;
+        else {
+            a++;
+        }
     }
-    if (max > k)
-        max = k;
+    for (int z = 0 ; z < n ; ++z) {
+        if (count[z] > max && count[z] <= k)
+            max = count[z];
+    }
 
     cout << max << endl;
 }
