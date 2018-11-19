@@ -15,15 +15,13 @@ int main (void) {
         for (int j = 0 ; j < n ; ++j) {
             cin >> a[j];
         }
-        for (int j = 0 ; j < n ; ++j) {
-            if ((j == 0) && (a[j] != a[j+1]))
-                count++;
-            else if ((j == (n - 1)) && (a[j] != a[j-1]))
-                count++;
-            else {
-                if ((a[j] != a[j-1]) || (a[j] != a[j+1]))
-                    count++;
-            }
+        if (a[0] != a[1])
+            count++;
+        if (a[n-1] != a[n-2])
+            count++;
+        for (int j = 1 ; j < n-1 ; ++j) {
+            if ((a[j] != a[j-1]) || (a[j] != a[j+1]))
+                count++;            
         }
 
         res[i] = count;
@@ -32,5 +30,5 @@ int main (void) {
     for (int i = 0 ; i < nTest ; ++i)
         cout << res[i] << endl;
 
-    return 0;
+    return (0);
 }
