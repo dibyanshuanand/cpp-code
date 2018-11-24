@@ -4,8 +4,13 @@ using namespace std;
 
 int main()
 {
-	int a[5] = {1, 2, 3, 4, 5};
-	cout << a[a[1]];
+	string str;
+	string str1 = "monday";
+	cin >> str;
+	if (str == str1)
+		cout << 1 << endl;
+	else
+		cout << 0 << endl;
 	
 	return 0;
 }
