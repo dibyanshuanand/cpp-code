@@ -9,6 +9,20 @@ void arrayInput (int a[]) {
     return;
 }
 
+void deleteElementAt(int pos, int a[]) {
+
+    for (int y = pos ; y < n-1 ; ++y) {
+        a[y] = a[y+1];
+    }
+    a[n-1] = -1;
+    n--;
+
+    for (int y = 0 ; y < n ; ++y)
+        cout << a[y] << " ";
+    cout << endl;
+    return;
+}
+
 int luckySearch (int player, int a[]) {
     int luckyNum;
     int result = -1;
@@ -20,21 +34,13 @@ int luckySearch (int player, int a[]) {
     for (int x = 0 ; x < n ; ++x) {
         if (a[x] % luckyNum == 0) {
             result = x;
-            break;
+            deleteElementAt(x, a);
+            x--;
         }
     }
     return result;
 }
 
-void deleteElementAt(int pos, int a[]) {
-    int temp;
-    for (int y = pos ; y < n-1 ; ++y) {
-        a[y] = a[y+1];
-    }
-    a[n-1] = -1;
-    n--;
-    return;
-}
 
 int main () {
     int nTest;
@@ -46,7 +52,7 @@ int main () {
     for (int i = 0 ;i < nTest ; ++i) {
         cin >> n >> luckBob >> luckAlice;
         int series[n];
-        int rejectSeries[n];
+        // int rejectSeries[n];
         currentPlayer = 1;
         arrayInput(series);
         while(1) {
@@ -54,8 +60,8 @@ int main () {
 
             if (k == -1)
                 break;
-            else
-                deleteElementAt(k, series);
+            // else
+            //     deleteElementAt(k, series);
             
             if (currentPlayer == 1)
                 currentPlayer = 2;
@@ -67,9 +73,9 @@ int main () {
 
     for (int q = 0 ; q < nTest ; ++q) {
         if (res[q] = 1)
-            cout << "BOB" << endl;
-        else if (res[q] == 2)
             cout << "ALICE" << endl;
+        else if (res[q] == 2)
+            cout << "BOB" << endl;
     }
 
     return 0;
