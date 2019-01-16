@@ -43,7 +43,7 @@ int main(void) {
         if ((day2-day1) >= 0)
             days = day2 - day1 + 1;
         else
-            days = (7-(day2-day1)) + 1;
+            days = (7-(day1-day2)) + 1;
 
         
         while ((days >= dl) && (days <= dh)) {
