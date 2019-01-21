@@ -3,10 +3,10 @@ using namespace std;
 
 int main()
 {
-	string input;
-	getline(cin, input);
+	char ch = 'f';
+	int chI = ch;
 
-	cout << input << endl;
+	cout << chI << endl;
 
 	return 0;
 }
